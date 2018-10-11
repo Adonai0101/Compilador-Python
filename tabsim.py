@@ -101,33 +101,33 @@ def tabla():
                     if palabra[1] != '=':
                         print("Error en la linea: " +str(cont))
                     else:
-                        if palabra[2] == '"':
-                            if palabra[4] == '"':
+                        if palabra[2] == '<':
+                            if palabra[4] == '>':
                                 #aqui registraos los datos
                                 i = nombreVar.index(palabra[0])
                                 varlor.pop(i)
                                 varlor.insert(i,palabra[3])
                             else:
-                                print("Error en la linea: "+ str(cont) + ' Tiene que terminar con una " ')
+                                print("Error en la linea: "+ str(cont) + ' Tiene que terminar con una > ')
                         else:
-                            print("Error en la linea: "+ str(cont) + ' Tiene que empesar con una " ')
+                            print("Error en la linea: "+ str(cont) + ' Tiene que empesar con una < ')
                     
                 elif tipoDato[i] == "caracter":
                     if palabra[1] != '=':
                         print("Error en la linea: " +str(cont))
                     else:
-                        if palabra[2] == "'":
+                        if palabra[2] == "<":
                             if len(palabra[3]) == 1:
-                                if palabra[4] == "'":
+                                if palabra[4] == ">":
                                     i = nombreVar.index(palabra[0])
                                     varlor.pop(i)
                                     varlor.insert(i,palabra[3])
                                 else:
-                                    print("Error en la linea: " + str(cont) + " Tiene que terminar con '")
+                                    print("Error en la linea: " + str(cont) + " Tiene que terminar con >")
                             else:
                                 print("Error en la linea: " + str(cont) + " no es caracter")
                         else:
-                            print("Error en la linea: " + str(cont) + " Tiene que empesar con '")
+                            print("Error en la linea: " + str(cont) + " Tiene que empesar con <")
                 elif tipoDato[i] == "bol":
                     if palabra[1] != '=':
                         print("Error en la linea: " + str(cont) + "No es Asignacion valida")
@@ -165,5 +165,5 @@ def crearId(numero):
     return id
 
 ## Ejecutamos todas la pruebas
-#tabla()
-#imprimirTabla()
+tabla()
+imprimirTabla()

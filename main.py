@@ -1,6 +1,10 @@
 import archivo
 import tabsim
+
 entrada = "archivo.txt"
-salida = "nuevo.dep"
+salida = "archivo.dep"
+
 archivo.depurador( entrada , salida)
 
+tabsim.tabla(salida)
+tabsim.imprimirTabla()

@@ -53,8 +53,8 @@ def buscarTabla(cad):
         return False
 
 
-def tabla():
-    archivo = open("arch.dep", "r")
+def tabla(cad):
+    archivo = open(cad, "r")
     cont = 1
     noId = 0
     for linea in archivo.readlines():
@@ -68,16 +68,13 @@ def tabla():
                 if existeVar(palabra[1]):
                     print("Error, Variable ya Existe, linea: " + str(cont))
                 else:
-
                     if validar.var(palabra[1]):
-
                         tipoDato.append(palabra[0])
                         nombreVar.append(palabra[1])
                         varlor.append("--")
                         identi.append(crearId(noId))
                         noId =  noId + 1
                         tiposAsm.append("--")
-
                     else:
                         print("Error, no es un identificador valido, linea: " + str(cont))
             
@@ -89,55 +86,71 @@ def tabla():
                     if palabra[1] != '=':
                         print("Error en la linea: " +str(cont))
                     else:
-                        if validar.esNumero(palabra[2]):
-                            i = nombreVar.index(palabra[0])
-                            varlor.pop(i)
-                            varlor.insert(i,palabra[2])
-                        else:
-                            print("Error de tipo en linea: " + str(cont))
+                        try:
+                            if validar.esNumero(palabra[2]):
+                                i = nombreVar.index(palabra[0])
+                                varlor.pop(i)
+                                varlor.insert(i,palabra[2])
+                            else:
+                                print("Error de tipo en linea: " + str(cont))
+                        except:
+                            print("Sintaxis Error en la linea: " +  str(cont))
 
                 elif tipoDato[i] == "cadena":
                    # print("Cadena")
                     if palabra[1] != '=':
                         print("Error en la linea: " +str(cont))
                     else:
-                        if palabra[2] == '<':
-                            if palabra[4] == '>':
-                                #aqui registraos los datos
-                                i = nombreVar.index(palabra[0])
-                                varlor.pop(i)
-                                varlor.insert(i,palabra[3])
-                            else:
-                                print("Error en la linea: "+ str(cont) + ' Tiene que terminar con una > ')
-                        else:
-                            print("Error en la linea: "+ str(cont) + ' Tiene que empesar con una < ')
-                    
-                elif tipoDato[i] == "caracter":
-                    if palabra[1] != '=':
-                        print("Error en la linea: " +str(cont))
-                    else:
-                        if palabra[2] == "<":
-                            if len(palabra[3]) == 1:
-                                if palabra[4] == ">":
+                        try:
+
+                            if palabra[2] == '<':
+                                if palabra[4] == '>':
+                                    #aqui registraos los datos
                                     i = nombreVar.index(palabra[0])
                                     varlor.pop(i)
                                     varlor.insert(i,palabra[3])
                                 else:
-                                    print("Error en la linea: " + str(cont) + " Tiene que terminar con >")
+                                    print("Error en la linea: "+ str(cont) + ' Tiene que terminar con una > ')
                             else:
-                                print("Error en la linea: " + str(cont) + " no es caracter")
-                        else:
-                            print("Error en la linea: " + str(cont) + " Tiene que empesar con <")
+                                print("Error en la linea: "+ str(cont) + ' Tiene que empesar con una < ')
+                        except:
+                            print("Sintaxis Error en la linea: " +  str(cont))
+
+                elif tipoDato[i] == "caracter":
+                    if palabra[1] != '=':
+                        print("Error en la linea: " +str(cont))
+                    else:
+                        try:
+                            if palabra[2] == "<":
+                                if len(palabra[3]) == 1:
+                                    if palabra[4] == ">":
+                                        i = nombreVar.index(palabra[0])
+                                        varlor.pop(i)
+                                        varlor.insert(i,palabra[3])
+                                    else:
+                                        print("Error en la linea: " + str(cont) + " Tiene que terminar con >")
+                                else:
+                                    print("Error en la linea: " + str(cont) + " no es caracter")
+                            else:
+                                print("Error en la linea: " + str(cont) + " Tiene que empesar con <")
+                        except:
+                            print("Sintaxis Error en la linea: " +  str(cont))
+
                 elif tipoDato[i] == "bol":
                     if palabra[1] != '=':
                         print("Error en la linea: " + str(cont) + "No es Asignacion valida")
                     else:
-                        if palabra[2] == 'verdad' or palabra[2] == 'falso':
-                            i = nombreVar.index(palabra[0])
-                            varlor.pop(i)
-                            varlor.insert(i,palabra[2])
-                        else:
-                            print("Eroor de asignacion en la linea: " + str(cont))
+                        try:
+
+                            if palabra[2] == 'verdad' or palabra[2] == 'falso':
+                                i = nombreVar.index(palabra[0])
+                                varlor.pop(i)
+                                varlor.insert(i,palabra[2])
+                            else:
+                                print("Eroor de asignacion en la linea: " + str(cont))
+                        except:
+                            print("Sintaxis Error en la linea: " +  str(cont))
+
                 else:
                     print("Error de declaracion en la linea: " + str(cont))
             else:
@@ -165,5 +178,5 @@ def crearId(numero):
     return id
 
 ## Ejecutamos todas la pruebas
-tabla()
-imprimirTabla()
+#tabla()
+#imprimirTabla()

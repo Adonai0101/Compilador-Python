@@ -2,3 +2,7 @@ entero x
 x = 20
 cadena cade
 cade = < holius >  
+entero a
+a = 30              
+entero z
+z = 0

@@ -24,4 +24,3 @@ def depurador(fuente , depurado):
         linea = quitarComentario(linea)
         linea = quitaEspacios(linea)
         a.write(linea + "\n")
-    a.write("fin")

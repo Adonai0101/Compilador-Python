@@ -1,0 +1,78 @@
+-> Adona.io <-
+--- Palabras reservadas
+    * entero: palabra reservada para valores enteros
+    * cadena: palabra reservada para conjunto de caracteres
+    * caracter: palabra reservada para valores de tipo caracter
+    * bol: palabra reservada para valores booleanos (True/False)
+    
+--- Formas de declarar variables 
+
+    Para poder declarar una variable primero se necesita indicar el tipo de dato que sera
+    despues viene el nombre que tomara a variable, este nombre puede ser cualquiera que 
+    incluya solo letras ya sean mayusculas o minusculas, solo se puede declarar una sola variable 
+    por lenea
+
+    -- Forma Correcta de declarar Variables 
+        entero var
+        cadena cad
+        caracter letra
+        bol ban
+
+    -- Formas incorrectas de declarar Variables
+        entero var,otravar
+        cadena cad112
+        caracter 5%letras
+
+--- Formas de asignar un valor a una variable
+
+    Para poder aser la asignacion de un valor a una variable se tienen que cumplir ciertas reglas
+
+    -- para "entero"
+        para asignarle un varon se tiene que seguir esta estructura
+         "Nombre-Variable" signo "=" valor numerico y al finalisar se tiene que dar un espacio en blanco
+         los espacios son muy importantes, seguir ejemplo
+
+            forma Correcta
+                var = 30
+            forma incorrecta
+                var hola a todos
+                var=10
+
+    -- para "cadena"
+            para asignarle un varon se tiene que seguir esta estructura
+            "Nombre-Variable" signo "="signo "<" "Cualquiercosa" signo ">" y al finalisar se tiene que dar un espacio en blanco
+            los espacios son muy importantes, seguir ejemplo
+
+            forma Correcta
+                cad = < hola > 
+            forma incorrecta
+                cad = < hola     s      todos >
+                cad=<hola>
+
+    -- para "cartacter"
+            para asignarle un varon se tiene que seguir esta estructura
+            "Nombre-Variable" signo "="signo "<" "un solo caracter">" y al finalisar se tiene que dar un espacio en blanco
+            los espacios son muy importantes, seguir ejemplo
+
+            forma Correcta
+                letra = < l > 
+            forma incorrecta
+                letra = < hola >
+                letra=<hola>
+                letra=<l>
+            
+    -- para "bol"
+             para asignarle un varon se tiene que seguir esta estructura
+             "Nombre-Variable" signo "=" palabra "verdadero" O "falso" y al finalisar se tiene que dar un espacio en blanco
+            los espacios son muy importantes, seguir ejemplo
+
+             forma Correcta
+                ban = verdadero
+                ban = falso
+            forma incorrecta
+                ban = True
+                ban = False
+                ban=falso
+
+                
+

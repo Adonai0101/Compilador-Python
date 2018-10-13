@@ -1,5 +1,5 @@
 -> Adona.io <-
---- Palabras reservadas
+--- Palabras reservadas para Tipos de Datos
     * entero: palabra reservada para valores enteros
     * cadena: palabra reservada para conjunto de caracteres
     * caracter: palabra reservada para valores de tipo caracter
@@ -74,5 +74,5 @@
                 ban = False
                 ban=falso
 
-                
+
 

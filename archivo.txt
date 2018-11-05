@@ -5,4 +5,17 @@ cade = < holius >
 entero a
 a = 30              
 entero z
-z = 0
+z = 0 
+
+caracter car 
+car = < A > 
+
+bol ban 
+
+ban = 49    
+
+leer car  
+
+imprimir car
+
+otra cosa

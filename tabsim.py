@@ -1,9 +1,15 @@
 import validar
 # revisa si es una palabra reserbada
 def esPalres(cad):
-    palres = ["entero" , "cadena" , "caracter" ,"bol", 
-            "lectura", "consola" , "si" , "mientras" , "repite"]
+    palres = ["entero" , "cadena" , "caracter" ,"bol"]
     if cad in palres:
+        return True
+    else:
+        return False
+
+def esOtraPal(cad):
+    otra = ["leer", "imprimir" , "si" , "mientras" , "repite"]
+    if cad in otra:
         return True
     else:
         return False
@@ -51,8 +57,7 @@ def buscarTabla(cad):
         return True
     else:
         return False
-
-
+        
 def tabla(cad):
     archivo = open(cad, "r")
     cont = 1
@@ -78,10 +83,14 @@ def tabla(cad):
                     else:
                         print("Error, no es un identificador valido, linea: " + str(cont))
             
+            elif esOtraPal(palabra[0]):
+                pass
+            
             elif existeVar(palabra[0]):
                 ## se ase aqui mismo la asignacion pero primero tenemos que ver de que tipo es 
                 i = 0
                 i = nombreVar.index(palabra[0])
+
                 if tipoDato[i] == "entero":
                     if palabra[1] != '=':
                         print("Error en la linea: " +str(cont))
@@ -150,12 +159,11 @@ def tabla(cad):
                                 print("Eroor de asignacion en la linea: " + str(cont))
                         except:
                             print("Sintaxis Error en la linea: " +  str(cont))
-
                 else:
                     print("Error de declaracion en la linea: " + str(cont))
             else:
+                pass
                 print("Error, variable no declarada en linea: " + str(cont))
-                
         cont = cont + 1
     archivo.close() 
 
@@ -164,12 +172,12 @@ def imprimirTabla():
     letrero = " Tabla de Simbolos "
     print("\n")
     print(letrero.center(72 ,"*"))
-    print("Tipo de Dato \t Nombre de Variable \t varlor \t id \t Tipo-ASM")
+    print("Tipo de Dato \t\t Nombre de Variable \t\t varlor \t\t id \t\t Tipo-ASM")
     print(""); # Damos un espacio entreletrero
     x =  len(tipoDato)
     cont = 0
     while cont < x:
-        print(tipoDato[cont] + "\t\t\t" + nombreVar[cont] + "\t\t  " + varlor[cont] + "\t\t" + identi[cont] + "\t  " + tiposAsm[cont])
+        print(tipoDato[cont] + "\t\t\t\t" + nombreVar[cont] + "\t\t\t  " + varlor[cont] + "\t\t\t" + identi[cont] + "\t\t\t\t" + tiposAsm[cont])
         cont = cont + 1
     print("")# Salto de Linea para separar letrero 
 

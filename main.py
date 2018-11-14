@@ -11,3 +11,5 @@ tabsim.tabla(salida)
 tabsim.imprimirTabla()
 
 Lectura.lectura(salida)
+
+/* ahora crearemos el ensamblador*/

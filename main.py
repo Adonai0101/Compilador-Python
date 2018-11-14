@@ -12,4 +12,4 @@ tabsim.imprimirTabla()
 
 Lectura.lectura(salida)
 
-/* ahora crearemos el ensamblador*/
+#ahora crearemos el ensamblador

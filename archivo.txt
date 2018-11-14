@@ -18,4 +18,6 @@ leer car
 
 imprimir car
 
+imprimir x
+
 otra cosa

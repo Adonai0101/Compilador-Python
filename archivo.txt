@@ -1,23 +1,22 @@
-entero x 
-x = 20
-cadena cade
-cade = < holius >  
-entero a
-a = 30              
-entero z
-z = 0 
+entero x
+x = 10
 
-caracter car 
-car = < A > 
+entero var
 
-bol ban 
+cadena  cad
+cad = < ado >
 
-ban = 49    
+caracter car
+car = < L > 
 
-leer car  
+cadena let
+let = < Hola_compilador >
 
-imprimir car
-
-imprimir x
-
-otra cosa
+imprimir let
+imprimir x 
+imprimir x 
+imprimir x 
+imprimir x 
+imprimir x 
+imprimir x 
+imprimir x 

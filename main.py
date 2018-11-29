@@ -12,9 +12,12 @@ tabsim.imprimirTabla()
 
 Lectura.lectura(salida)
 
+#Creamos nuestro archivo ensamblador 
+import ensamblador
 
 # esta lista le pasara los valores a ensamblador
 print(Lectura.listaAcciones)
 print(Lectura.listaValor)
 
-#ahora crearemos el ensamblador
+
+

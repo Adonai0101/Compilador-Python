@@ -93,10 +93,9 @@ p0 proc far  				;inicia el procedimiento p0
 cont = 0
 while cont < len(Lectura.listaAcciones):
     if Lectura.listaAcciones[cont] == 'imprimir':
-        print("La vas a matar perro")
         imp = 'imp ' + Lectura.listaValor[cont];
         ensamblador.write(imp + "\n")
-
+        #Este codigo es para saltos de linea siempre debe de ir 
         ensamblador.write('mov dh,' + str(cont + 1) + "\n")
         ensamblador.write('mov ah,2' + "\n")
         ensamblador.write('mov bh,0' + "\n")

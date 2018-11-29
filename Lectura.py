@@ -20,7 +20,7 @@ def lectura(fuente):
                                                     listaValor.append(palabra[1])
 
                                             elif palabra[0] == 'imprimir':
-                                                    print("Soy Imprimir")
+                                                    #print("Soy Imprimir")
                                                     listaAcciones.append(palabra[0])
                                                     listaValor.append(palabra[1])
 

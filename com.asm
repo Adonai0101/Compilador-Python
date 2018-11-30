@@ -17,10 +17,9 @@ pila ends
 
 datos segment para public 'data'
 x db '10$'
-var db '--$'
-cad db 'ado$'
-car db 'L$'
 let db 'Hola_compilador$'
+var DB 10,?,10 DUP("$")
+SL DB 10,24H
 
 datos ends
 
@@ -72,33 +71,19 @@ mov dh,2
 mov ah,2
 mov bh,0
 int 10h
-imp x
-mov dh,3
-mov ah,2
-mov bh,0
-int 10h
-imp x
+;lectura
+LEA DX,var
+MOV AH,0AH
+INT 21H
+
+        LEA DX,SL
+		MOV AH,9
+		INT 21H
+        LEA DX,var+2
+MOV AH,9
+INT 21H
+imp var
 mov dh,4
-mov ah,2
-mov bh,0
-int 10h
-imp x
-mov dh,5
-mov ah,2
-mov bh,0
-int 10h
-imp x
-mov dh,6
-mov ah,2
-mov bh,0
-int 10h
-imp x
-mov dh,7
-mov ah,2
-mov bh,0
-int 10h
-imp x
-mov dh,8
 mov ah,2
 mov bh,0
 int 10h

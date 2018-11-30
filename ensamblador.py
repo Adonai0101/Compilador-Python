@@ -34,9 +34,26 @@ datos segment para public 'data'
 #cad db 'Hola Mundo$'
 cont = 0
 while cont < len(tabsim.varlor):
-    var =  tabsim.nombreVar[cont] + " db '" + tabsim.varlor[cont] + "$'"
-    ensamblador.write(var + "\n")
+    if tabsim.varlor[cont] == '--': # Separamos las variables que no tengan valor solo estas se pueden leer
+        pass
+        #print("NO DEBE SER VALIDO")
+    else:
+        var =  tabsim.nombreVar[cont] + " db '" + tabsim.varlor[cont] + "$'"
+        ensamblador.write(var + "\n")
     cont =  cont + 1
+#Declaramos las variables que se leen
+cont = 0
+while cont < len(Lectura.listaAcciones):
+    if Lectura.listaAcciones[cont] == 'leer':
+        #print("leer en ensamblador ")
+        varlec = Lectura.listaValor[cont] + ' DB 10,?,10 DUP("$")'
+        ensamblador.write(varlec + "\n")
+    else:
+        pass
+        #print(Lectura.listaAcciones[cont])
+    cont = cont + 1
+
+ensamblador.write("SL DB 10,24H" + "\n") # en esta variable se guardara temporalmente el valor q se lee
 #---------------------------------------
 ensamblador.write("""
 datos ends
@@ -100,6 +117,35 @@ while cont < len(Lectura.listaAcciones):
         ensamblador.write('mov ah,2' + "\n")
         ensamblador.write('mov bh,0' + "\n")
         ensamblador.write('int 10h' + "\n")
+
+    elif Lectura.listaAcciones[cont] == 'leer':
+        print("Codigo para leer")
+        #LEA DX,ado
+		#MOV AH,0AH
+		#INT 21H
+
+		#LEA DX,SL
+		#MOV AH,9
+		#INT 21H
+						
+		#LEA DX,ado+2
+		#MOV AH,9
+		#INT 21H
+        ensamblador.write(';lectura' + "\n")
+        ensamblador.write('LEA DX,' + Lectura.listaValor[cont] + "\n")
+        ensamblador.write('MOV AH,0AH' + "\n")
+        ensamblador.write('INT 21H' + "\n")
+       
+        ensamblador.write("""
+        LEA DX,SL
+		MOV AH,9
+		INT 21H
+        """)
+
+        ensamblador.write('LEA DX,' + Lectura.listaValor[cont] + '+2' + "\n")
+        ensamblador.write('MOV AH,9' + "\n")
+        ensamblador.write('INT 21H' + "\n")
+        
 
     cont =  cont + 1
 

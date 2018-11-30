@@ -3,20 +3,12 @@ x = 10
 
 entero var 
 
-cadena cad 
-cad = < ado > 
-
-caracter car 
-car = < L > 
-
 cadena let 
 let = < Hola_compilador > 
 
 imprimir let 
 imprimir x 
-imprimir x 
-imprimir x 
-imprimir x 
-imprimir x 
-imprimir x 
-imprimir x 
+
+leer var 
+
+imprimir var 
